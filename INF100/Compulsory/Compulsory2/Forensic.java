@@ -119,7 +119,7 @@ public class Forensic {
 		double max = maxFromArray(counts);
 		for (int i = 0; i < counts.length; i++) {
 			for (int k = 0; k < counts.length; k++) {
-				if (counts[i] == k) {
+				if (counts[i] == counts[k]) {
 					array2d[i][(int) (k * PRINT_WIDTH/max)] = "#";
 					System.out.println(array2d[i][(int) (k * PRINT_WIDTH/max)] );
 				} else
@@ -136,6 +136,14 @@ public class Forensic {
 
 	public static void main(String args[]) {
 		double[] cdSamples = cooldownSamples(27, 10);
+    double[] someExamples = {2.0088799960771184, 2.121420889236832, 1.9396865921089017,
+2.4044747294759574, 2.2430778650951178, 2.083040119880876,
+2.0595035785038114, 2.1782979876210806, 1.8812817807415378,
+2.232108837421659};
+
+  double[] counts = countsFromArray(someExamples, 10);
+  String[][] array2d = array2dFromCounts(counts);
+  printArray2d(array2d);
 
 		System.out.println(Arrays.toString(cdSamples));
 
@@ -144,8 +152,8 @@ public class Forensic {
 
 		System.out.println(Arrays.toString(countsFromArray(cdSamples, 5)));
 
-		String[][] array2d = array2dFromCounts(cdSamples);
-		printArray2d(array2d);
+		String[][] array2dd = array2dFromCounts(cdSamples);
+		printArray2d(array2dd);
 	}
 
 }
