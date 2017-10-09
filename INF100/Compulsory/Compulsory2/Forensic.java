@@ -73,62 +73,47 @@ public class Forensic {
 		double[] counts = new double[numRanges];
 		double min = minFromArray(array);
 		double max = maxFromArray(array);
-		double rangeSize = (max + min) / numRanges;
+		double rangeSize = (max - min) / (numRanges - 1);
 
 		System.out.println("Rangesize: " + rangeSize);
 
-		for (double value : array) {
-			int temp = (int) value;
-			int i = 0;
-			if ((rangeSize * i <= (value - min)) && (value - min) < rangeSize * (i + 1))
-				counts[temp]++;
+		for(double value : array) {
+			for(int i = (int) ((value - min) / rangeSize); i < array.length; i++) {
+				if((rangeSize * i <= (value - min)) && (value - min) < rangeSize * (i + 1)) {
+					counts[i]++;
+				}
+			}
 		}
-
-		// for(int i = 0; i < array.length; i++) {
-		// double value = array[i];
-		// if((rangeSize * i <= (value - min)) && (value - min) < rangeSize * (i
-		// + 1))
-		//
-		// }
-		// for(double value : array) {
-		// int j = 0;
-		// System.out.println("Value: " + value);
-		// System.out.println("Min: " + min);
-		// for(int i = (int) ((value - min)/rangeSize); (rangeSize * i <= (value
-		// - min)) && (value - min) < rangeSize * (i + 1); i++) {
-		// System.out.println("i value: " + i);
-		// counts[j] = ;
-		// }
-		// }
 
 		return counts;
 	}
 
+
 	public static void printArray2d(String[][] array2d) {
-		for (int i = 0; i < array2d.length; i++) {
-			for (int j = 0; j < array2d.length; j++) {
+		for(int i = 0; i < array2d.length; i++) {
+			for(int j = 0; j < array2d.length; j++) {
 				System.out.print(array2d[i][j]);
 			}
 			System.out.println();
 		}
 	}
 
-	public static String[][] array2dFromCounts(double[] counts) {
-		final int PRINT_WIDTH = 50;
-		String[][] array2d = new String[counts.length][PRINT_WIDTH];
-		double max = maxFromArray(counts);
-		for (int i = 0; i < counts.length; i++) {
-			for (int k = 0; k < counts.length; k++) {
-				if (counts[i] == counts[k]) {
-					array2d[i][(int) (k * PRINT_WIDTH/max)] = "#";
-					System.out.println(array2d[i][(int) (k * PRINT_WIDTH/max)] );
-				} else
-					array2d[i][PRINT_WIDTH - (int) (2 * PRINT_WIDTH / max)] = " ";
-			}
-		}
-
-		return array2d;
-	}
+	// public static String[][] array2dFromCounts(double[] counts) {
+	// 	final int PRINT_WIDTH = 50;
+	// 	String[][] array2d = new String[counts.length][PRINT_WIDTH];
+	// 	double max = maxFromArray(counts);
+	// 	for (int i = 0; i < counts.length; i++) {
+	// 		for (int k = 0; k < counts.length; k++) {
+	// 			if (counts[i] == counts[k]) {
+	// 				array2d[i][(int) (k * PRINT_WIDTH/max)] = "#";
+	// 				System.out.println(array2d[i][(int) (k * PRINT_WIDTH/max)] );
+	// 			} else
+	// 				array2d[i][PRINT_WIDTH - (int) (2 * PRINT_WIDTH / max)] = " ";
+	// 		}
+	// 	}
+	//
+	// 	return array2d;
+	// }
 
 	public static void printReport(String[][] array2d, double arrayMin, double arrayMax) {
 
@@ -136,24 +121,19 @@ public class Forensic {
 
 	public static void main(String args[]) {
 		double[] cdSamples = cooldownSamples(27, 10);
-    double[] someExamples = {2.0088799960771184, 2.121420889236832, 1.9396865921089017,
-2.4044747294759574, 2.2430778650951178, 2.083040119880876,
-2.0595035785038114, 2.1782979876210806, 1.8812817807415378,
-2.232108837421659};
-
-  double[] counts = countsFromArray(someExamples, 10);
-  String[][] array2d = array2dFromCounts(counts);
-  printArray2d(array2d);
+		// String[][] array2d = array2dFromCounts(counts);
+		// printArray2d(array2d);
 
 		System.out.println(Arrays.toString(cdSamples));
 
 		System.out.println("Min : " + minFromArray(cdSamples));
 		System.out.println("Max : " + maxFromArray(cdSamples));
 
-		System.out.println(Arrays.toString(countsFromArray(cdSamples, 5)));
+		// System.out.println(Arrays.toString(countsFromArray(cdSamples, 5)));
+		System.out.println(Arrays.toString(countsFromArray(cdSamples, cdSamples.length)));
 
-		String[][] array2dd = array2dFromCounts(cdSamples);
-		printArray2d(array2dd);
+		// String[][] array2dd = array2dFromCounts(cdSamples);
+		// printArray2d(array2dd);
 	}
 
 }
