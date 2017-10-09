@@ -98,22 +98,26 @@ public class Forensic {
 		}
 	}
 
-	// public static String[][] array2dFromCounts(double[] counts) {
-	// 	final int PRINT_WIDTH = 50;
-	// 	String[][] array2d = new String[counts.length][PRINT_WIDTH];
-	// 	double max = maxFromArray(counts);
-	// 	for (int i = 0; i < counts.length; i++) {
-	// 		for (int k = 0; k < counts.length; k++) {
-	// 			if (counts[i] == counts[k]) {
-	// 				array2d[i][(int) (k * PRINT_WIDTH/max)] = "#";
-	// 				System.out.println(array2d[i][(int) (k * PRINT_WIDTH/max)] );
-	// 			} else
-	// 				array2d[i][PRINT_WIDTH - (int) (2 * PRINT_WIDTH / max)] = " ";
-	// 		}
-	// 	}
-	//
-	// 	return array2d;
-	// }
+	public static String[][] array2dFromCounts(double[] counts) {
+		final int PRINT_WIDTH = 50;
+		String[][] array2d = new String[counts.length][PRINT_WIDTH];
+		double max = maxFromArray(counts);
+
+		for(int i = 0; i < counts.length; i++) {
+			for(int j = 0; j < PRINT_WIDTH; j++) {
+
+				if(counts[i] == j) {
+					array2d[i][(int) (j * PRINT_WIDTH / max)] = "#";
+				}
+				else {
+				 System.out.println((int) (PRINT_WIDTH - (j * PRINT_WIDTH / max)));
+				 array2d[i][PRINT_WIDTH - (int) (2 * PRINT_WIDTH / max)] = " ";
+			 }
+			}
+		}
+
+		return array2d;
+	}
 
 	public static void printReport(String[][] array2d, double arrayMin, double arrayMax) {
 
@@ -132,8 +136,8 @@ public class Forensic {
 		// System.out.println(Arrays.toString(countsFromArray(cdSamples, 5)));
 		System.out.println(Arrays.toString(countsFromArray(cdSamples, cdSamples.length)));
 
-		// String[][] array2dd = array2dFromCounts(cdSamples);
-		// printArray2d(array2dd);
+		String[][] array2dd = array2dFromCounts(cdSamples);
+		printArray2d(array2dd);
 	}
 
 }
