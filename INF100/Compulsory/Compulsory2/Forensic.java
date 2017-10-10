@@ -75,10 +75,9 @@ public class Forensic {
 	public static double minFromArray(double[] array) {
 		double min = array[0];
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++)
 			if (array[i] < min)
 				min = array[i];
-		}
 
 		return min;
 	}
@@ -92,11 +91,10 @@ public class Forensic {
 	public static double maxFromArray(double[] array) {
 		double max = array[0];
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++)
 			if (array[i] > max)
 				max = array[i];
-		}
-
+		
 		return max;
 	}
 
@@ -122,11 +120,9 @@ public class Forensic {
 		// Iterate over the array and count the number of samples that fall
 		// withing range.
 		for(double value : array) {
-			for(int i = (int) ((value - min) / rangeSize); i < array.length; i++) {
-				if((rangeSize * i <= (value - min)) && (value - min) < rangeSize * (i + 1)) {
+			for(int i = (int) ((value - min) / rangeSize); i < array.length; i++)
+				if((rangeSize * i <= (value - min)) && (value - min) < rangeSize * (i + 1))
 					counts[i]++;
-				}
-			}
 		}
 
 		return counts;
@@ -136,7 +132,7 @@ public class Forensic {
 	 * Prints each element of the 2d input array
 	 *
 	 * @param String[][] array2d
-	 										 The array that are going to get printed out
+	 *                   The array that are going to get printed out
 	 */
 	public static void printArray2d(String[][] array2d) {
 		for(String[] a : array2d) {
@@ -195,7 +191,7 @@ public class Forensic {
 	}
 
 	public static void main(String args[]) {
-		double[] array = cooldownSamples(27, 100000);
+		double[] array = cooldownSamples(27, 100);
 		double[] counts = countsFromArray(array, 20);
 		String[][] array2d = array2dFromCounts(counts);
 		printReport(array2d, minFromArray(array), maxFromArray(array));
