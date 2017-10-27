@@ -52,17 +52,6 @@ public class AssignStudents{
       }
     }
 
-    int count2 = 0;
-    for(int i = 0; i < gradersWithStudents.size(); i++) {
-      if (gradersWithStudents.get(i).contains(graders.get(count))) {
-        System.out.println("");
-      }
-      count++;
-      if(count == graderSize) {
-        count = 0;
-      }
-    }
-
     return gradersWithStudents;
   }
 
