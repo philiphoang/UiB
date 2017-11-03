@@ -1,0 +1,18 @@
+Barcode: b61696fb-07ea-4cc3-aa96-e510c8a95aac
+Sender: Dr. Java
+Fake Street, 123
+32145, Bergen
+Norway
+Recipient: Mr. Python
+News Street, 999
+432234, Haugesund
+Norway
+Barcode: 428e8869-ec7d-4ea5-9997-7216559309bb
+Sender: Dag
+Something, 1337
+2017, Bergen
+Norway
+Recipient: Site
+NotFound, 404
+0, Web
+Internet
