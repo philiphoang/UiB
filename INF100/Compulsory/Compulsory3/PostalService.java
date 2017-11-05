@@ -29,12 +29,13 @@ public class PostalService {
       int size = registeredParcels.size();
 
       System.out.printf("Enter command (%d parcel(s) registered)"
-      + "%nr: register parcel"
-      + "%np: print parcels to display"
-      + "%nw: write parcels to file"
-      + "%nc: clear parcel queue"
-      + "%nq: quit%n> ", size);
+                      + "%nr: register parcel"
+                      + "%np: print parcels to display"
+                      + "%nw: write parcels to file"
+                      + "%nc: clear parcel queue"
+                      + "%nq: quit%n> ", size);
       String command = sc.next();
+
       if (command.equals("r")) {
         registeredParcels.add(registerParcel());
 
@@ -120,7 +121,7 @@ public class PostalService {
   }
 
   /**
-  * Check if the input contains only integers
+  * Check if the input contains only integer
   *
   * @return [description]
   */
@@ -128,9 +129,10 @@ public class PostalService {
     Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
     while(!s.matches("[0-9]+")) {
-      System.out.println("Invalid number");
+      System.out.println("Invalid input, only numbers are allowed");
       s = sc.nextLine();
     }
+    s.close();
     return Integer.parseInt(s);
   }
 
@@ -143,9 +145,10 @@ public class PostalService {
     Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
     while (!s.matches("[a-zA-Z .]+")) {
-      System.out.println("Only letters are allowed");
+      System.out.println("Invalid input, only letters are allowed");
       s = sc.nextLine();
     }
+    sc.close();
     return s;
   }
 
