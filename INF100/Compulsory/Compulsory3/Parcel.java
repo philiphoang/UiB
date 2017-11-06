@@ -34,12 +34,10 @@ public class Parcel {
   * @return a string that contains the information of the parcel
   */
   public String toString() {
-    String s = "";
-    s = "Barcode: " + barcode + "\n"
+    return "Barcode: " + barcode + "\n"
         + "Sender: " + sender + "\n"
         + "Recipient: " + recipient;
 
-    return s;
   }
 
 
