@@ -159,7 +159,7 @@ public class PostalService {
   */
   public static void parcelsToTerminal(ArrayList<Parcel> registeredParcels) {
     for (Parcel parcel : registeredParcels)
-    System.out.println(parcel + "\n");
+      System.out.println(parcel + "\n");
   }
 
   /**
