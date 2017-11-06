@@ -33,11 +33,7 @@ public class Address {
   * @return the string that contains an address
   */
   public String toString() {
-    String s = "";
-    s = street + ", " + Integer.toString(streetNumber) + "\n"
+    return street + ", " + Integer.toString(streetNumber) + "\n"
         + Integer.toString(postalCode) + ", " + town + "\n"
         + country;
-
-    return s;
-  }
 }
