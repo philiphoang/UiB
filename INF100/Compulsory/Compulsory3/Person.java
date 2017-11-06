@@ -28,9 +28,6 @@ public class Person {
   * @return a string that contains a name and an address
   */
   public String toString() {
-    String s = "";
-    s = name + "\n" + address.toString();
-
-    return s;
+    return name + "\n" + address.toString();
   }
 }
