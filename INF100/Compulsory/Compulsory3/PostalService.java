@@ -132,7 +132,6 @@ public class PostalService {
       System.out.println("Invalid input, only numbers are allowed");
       s = sc.nextLine();
     }
-    s.close();
     return Integer.parseInt(s);
   }
 
@@ -148,7 +147,6 @@ public class PostalService {
       System.out.println("Invalid input, only letters are allowed");
       s = sc.nextLine();
     }
-    sc.close();
     return s;
   }
 

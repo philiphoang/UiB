@@ -34,6 +34,7 @@ public class Address {
   */
   public String toString() {
     return street + ", " + Integer.toString(streetNumber) + "\n"
-        + Integer.toString(postalCode) + ", " + town + "\n"
-        + country;
+    + Integer.toString(postalCode) + ", " + town + "\n"
+    + country;
+  }
 }
