@@ -129,7 +129,7 @@ public class PostalService {
     Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
     while(!s.matches("[0-9]+")) {
-      System.out.println("Invalid input, only numbers are allowed");
+      System.out.println("Invalid input, only whole numbers are allowed");
       s = sc.nextLine();
     }
     return Integer.parseInt(s);
