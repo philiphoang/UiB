@@ -14,7 +14,6 @@ public class Main {
           pokemon2.attack(pokemon1);
           if (!pokemon1.isConscious())
             break;
-
     }
   }
 }
