@@ -6,7 +6,7 @@ public class Main {
     System.out.println(pokemon1);
     System.out.println(pokemon2);
 
-    while (pokemon1.isConscious() || pokemon2.isConscious() ) {
+    while (true) {
           pokemon1.attack(pokemon2);
           if (!pokemon2.isConscious())
             break;
