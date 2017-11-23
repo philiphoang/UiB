@@ -2,18 +2,18 @@ import java.util.Collections;
 
 public class Main {
   public static void main(String[] args) {
-    User ken = new User("ken");
-    User phil = new User("phil");
-    User torg = new User("torg");
-    User jules = new User("jules");
+      // create users
+      User bob = new User("Bob");
+      User alice = new User("Alice");
+      User charlie = new User("Charlie");
+      // setup friend connections
+      User.connect(alice, bob);
+      User.connect(alice, charlie);
 
-    User.connect(phil, ken);
-    User.connect(phil, torg);
-    User.connect(ken, torg);
-    User.connect(jules, phil);
+      // sort users by their number of friends
+      Collections.sort(User.getUsers());
+      // print all registered users
+      System.out.println(User.getUsers());
 
-    Collections.sort(User.getUsers());
-
-    System.out.println(User.getUsers());
   }
 }
